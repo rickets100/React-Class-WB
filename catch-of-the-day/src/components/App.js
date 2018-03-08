@@ -15,12 +15,10 @@ class App extends Component {
     const fishes = {...this.state.fishes};
     fishes[`fish${Date.now()}`] = fish;
     this.setState({fishes: fishes});
-    console.log('adding a fish');
   }
 
   loadSampleFishes = () => {
-    alert('hey there')
-    // this.setState({fishes: sampleFishes})
+    this.setState({fishes: sampleFishes})
   }
 
   render() {
