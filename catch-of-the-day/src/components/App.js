@@ -18,7 +18,6 @@ class App extends Component {
     // console.log('in componentDidMount: params.storeId is',params.storeId);
     const localStorageRef = localStorage.getItem(params.storeId)
     if (localStorageRef) {
-      console.log('restoring it', JSON.parse(localStorageRef));
       this.setState({order: JSON.parse(localStorageRef)});
     }
     // console.log('in componentDidMount: localStorageRef is',localStorageRef);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { formatPrice } from '../helpers';
 
 class EditFishForm extends Component {
   handleChange = event => {
@@ -21,19 +20,19 @@ class EditFishForm extends Component {
           type="text"
           name="name"
           onChange={this.handleChange}
-          value={this.props.fish.name}
+          value={props.name}
         />
         <input
           type="text"
           name="price"
           onChange={this.handleChange}
-          value={this.props.fish.price}
+          value={props.price}
         />
         <select
           type="text"
           name="status"
           onChange={this.handleChange}
-          value={this.props.fish.status}
+          value={props.status}
         >
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
@@ -41,13 +40,13 @@ class EditFishForm extends Component {
         <textarea
           name="desc"
           onChange={this.handleChange}
-          value={this.props.fish.desc}
+          value={props.desc}
         />
         <input
           type="text"
           name="image"
           onChange={this.handleChange}
-          value={this.props.fish.image}
+          value={props.image}
         />
         <button onClick={() => this.props.deleteFish(this.props.index)}>
           Remove Fish
