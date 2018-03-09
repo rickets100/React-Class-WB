@@ -3,15 +3,14 @@ import { formatPrice } from '../helpers';
 
 class EditFishForm extends Component {
   handleChange = event => {
-      console.log(event.currentTarget.value);
-      // update that fish
-      // 1. Take a copy of the current fish
-      const updatedFish = {
-        ...this.props.fish,
-        [event.currentTarget.name]: event.currentTarget.value
-      };
-      this.props.updateFish(this.props.index, updatedFish);
+    const updatedFish = {
+      ...this.props.fish,
+      [event.currentTarget.name]: event.currentTarget.value
     };
+    // [event.currentTarget.name] above is a way of having a dynamic key
+    this.props.updateFish(this.props.index, updatedFish);
+    console.log(updatedFish);
+  };
 
   render() {
     const props = this.props.fish;
