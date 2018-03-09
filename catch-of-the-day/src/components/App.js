@@ -30,8 +30,6 @@ class App extends Component {
   // firebase.previous_websocket_failure
   componentDidUpdate() {
     let params = this.props.match.params;
-    console.log('params!', params.storeId);
-    console.log(this.state.order);
     localStorage.setItem(params.storeId, JSON.stringify(this.state.order))
   }
 
@@ -45,6 +43,15 @@ class App extends Component {
     fishes[`fish${Date.now()}`] = fish;
     this.setState({ fishes: fishes });
   }
+
+  updateFish = (key, updatedFish) => {
+    // 1. Take a copy of the current state
+    const fishes = { ...this.state.fishes };
+    // 2. Update that state
+    fishes[key] = updatedFish;
+    // 3. Set that to state
+    this.setState({ fishes });
+  };
 
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes })
@@ -77,9 +84,10 @@ class App extends Component {
           order={this.state.order}
         />
         <Inventory
-          fishes={this.state.fishes}
           addFish={this.addFish}
+          updateFish={this.updateFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
         />
       </div>
     )
