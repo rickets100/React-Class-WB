@@ -19,7 +19,7 @@ class Fish extends Component {
         <p>{desc}</p>
         <button
           onClick={this.handleClick}
-          disabled={!isAvailable}>{isAvailable ? 'Add To Cart' : 'Sold Out'}
+          disabled={!isAvailable}>{isAvailable ? 'Add To Order' : 'Sold Out'}
         </button>
       </li>
     )
